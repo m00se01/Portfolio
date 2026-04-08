@@ -9,7 +9,7 @@ export const Modal = ({ open, onClose, children }) => {
       } `}
     >
       {/* Main Content Window */}
-      <div className="overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+      <div className="" onClick={(e) => e.stopPropagation()}>
         {children}
       </div>
     </div>

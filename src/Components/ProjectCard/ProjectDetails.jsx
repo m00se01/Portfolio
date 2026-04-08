@@ -4,77 +4,82 @@ import { faGit, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { ImageCarousel } from "../Carousel/ImageCarousel";
 
 const ProjectDetails = ({
-  title,
-  description,
-  screenshots,
-  stack,
-  onClose,
-  codeLink,
+    title,
+    description,
+    screenshots,
+    stack,
+    onClose,
+    codeLink,
 }) => {
-  // const items = [];
+    // const items = [];
 
-  const openInNewWindow = (url) => {
-    window.open(url, "_blank", "noreferrer");
-  };
+    const openInNewWindow = (url) => {
+        window.open(url, "_blank", "noreferrer");
+    };
 
-  const formatDescription = (desc) => {
-    return description?.split("\n").map((line, index) => (
-      <p key={index}>
-        <br />
-        {line}
-      </p>
-    ));
-  };
-
-  return (
-    <div className="container relative min-w-[80vw] flex flex-col justify-center bg-primary mx-auto min-h-screen ">
-      <button
-        className="w-32 h-10 m-8 font-bold text-black rounded-lg bg-accent font-poppins"
-        onClick={onClose}
-      >
-        Close
-      </button>
-
-      <div className="flex flex-col items-center justify-center">
-        <h1 className="p-8 text-center xl:text-6xl lg:text-5xl md:text-4xl sm:text-2xl">
-          {title}
-        </h1>
-
-        <button
-          onClick={() => openInNewWindow(codeLink)}
-          className="flex gap-4 p-4 font-bold rounded-lg bg-secondaryRed text-text"
-        >
-          View Code <FontAwesomeIcon className={"fa-xl"} icon={faGithub} />
-        </button>
-      </div>
-
-      <div className="p-8 mx-auto  max-w-[80%] font-poppins">
-        {/* Project Description Box */}
-        <div className="flex flex-col items-center gap-5 p-16 mx-auto overflow-auto border rounded-lg ">
-          <div className="flex flex-col items-start">
-            <div className="flex items-center gap-3 text-xl font-bold text-text">
-              <span>Stack:</span>
-              <Stack stack={stack} />
-            </div>
-            <h2 className="py-4 font-bold text-left font-inria text-secondaryAccent lg:text-3xl md:text-2xl sm:text-xl">
-              Project Description:
-            </h2>
-            <p className="overflow-y-auto text-xl text-text font-poppins">
-              {formatDescription(description)}
-              {/* <ProjectDescription description={description} /> */}
+    const formatDescription = () => {
+        return description?.split("\n").map((line, index) => (
+            <p key={index}>
+                <br />
+                {line}
             </p>
-          </div>
+        ));
+    };
+
+    return (
+        <div className="container relative flex flex-col min-w-[80vw] max-h-fit min-h-screen mx-auto bg-primary font-sans font-bold text-text">
+            {/* Header Container */}
+            <div className="relative flex flex-col items-center p-4 pt-4 mt-5 lg:pt-8 lg:flex-row lg:items-start">
+                <button
+                    className="w-full h-10 mb-4 font-bold transition-colors duration-200 rounded-lg bg-emerald-600 md:px-4 md:w-fit sm:inline md:mb-0 md:absolute md:left-8 font-poppins hover:bg-blue-500 md:hover:scale-110 focus:outline-none"
+                    onClick={onClose}
+                >
+                    Close
+                </button>
+
+                <div className="flex flex-col items-center justify-center w-full gap-6">
+                    <h1 className="px-4 text-3xl leading-tight text-center xl:text-6xl lg:text-5xl md:text-4xl font-quantico">
+                        {title}
+                    </h1>
+
+                    <button
+                        onClick={() => openInNewWindow(codeLink)}
+                        className="flex items-center justify-center w-full max-w-[70vw] md:max-w-sm gap-4 p-4 font-bold transition-transform rounded-lg hover:bg-blue-500 bg-emerald-600 drop-shadow-md text-text hover:scale-105"
+                    >
+                        <span className="whitespace-nowrap">View Code</span>
+                        <FontAwesomeIcon className="fa-xl" icon={faGithub} />
+                    </button>
+                </div>
+            </div>
+
+            <div className="p-8 h-[80vh] overflow-y-auto md:overflow-y-hidden md:mx-10 lg:mx-auto ">
+                {/* Project Description */}
+                <div className="lg:min-h-[50vh] flex flex-col lg:items-center gap-5 p-6 lg:mx-auto text-white bg-slate-700 rounded-md lg:w-[50vw]">
+                    <div className="flex flex-col items-start w-full">
+                        <div className="flex flex-wrap items-center gap-3 text-xl font-bold">
+                            <span>Stack:</span>
+                            <Stack stack={stack} />
+                        </div>
+
+                        <h2 className="py-2 font-bold text-left text-secondaryAccent lg:text-3xl md:text-2xl sm:text-xl">
+                            Project Description:
+                        </h2>
+
+                        <div className="text-xl font-semibold">
+                            {formatDescription()}
+                        </div>
+                    </div>
+                </div>
+
+                {/* Optional Screenshots */}
+                <div className="flex flex-col items-center justify-center gap-4 mt-10">
+                    {screenshots?.length > 0 && (
+                        <ImageCarousel items={screenshots} />
+                    )}
+                </div>
+            </div>
         </div>
-        <div className="flex flex-col items-center justify-center gap-4">
-          {screenshots?.length > 0 ? (
-            <ImageCarousel items={screenshots} />
-          ) : (
-            <div className="hidden"></div>
-          )}
-        </div>
-      </div>
-    </div>
-  );
+    );
 };
 
 export default ProjectDetails;
