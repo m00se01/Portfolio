@@ -52,7 +52,7 @@ const ProjectDetails = ({
                 </div>
             </div>
 
-            <div className="p-8 h-[80vh] overflow-y-auto md:overflow-y-hidden md:mx-10 lg:mx-auto ">
+            <div className="p-8 h-fit md:mx-10 lg:mx-auto ">
                 {/* Project Description */}
                 <div className="lg:min-h-[50vh] flex flex-col lg:items-center gap-5 p-6 lg:mx-auto text-white bg-slate-700 rounded-md lg:w-[50vw]">
                     <div className="flex flex-col items-start w-full">
@@ -71,6 +71,7 @@ const ProjectDetails = ({
                     </div>
                 </div>
 
+                {/* TODO: Implement Project Details Carousel */}
                 {/* Optional Screenshots */}
                 <div className="flex flex-col items-center justify-center gap-4 mt-10">
                     {screenshots?.length > 0 && (

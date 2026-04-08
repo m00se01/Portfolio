@@ -1,6 +1,7 @@
 import Disassembler from "./assets/disassembler.png";
 import screenshot_1 from "./assets/steam_roll_1.png";
 import pokemonAscii from "./assets/ascii_pokemon.jpg";
+import drumMachine from "./assets/drum_machine.png";
 
 export const javaProject = {
     image: Disassembler,
@@ -37,6 +38,22 @@ export const pokemonProject = {
     But I have decided to re-write the program so I can spend more time understanding some of the more complicated algorithms and implementations like random terrain generation using perlin noise and NPC path finding algorithms.
     `,
     codeLink: "https://github.com/bran-dev00/Text-Based-Pokemon-Project",
+};
+
+export const drumMachineProject = {
+    title: "Drum Machine",
+    image: drumMachine,
+    finished: true,
+    stack: ["cpp"],
+    description: `An 8 track drum machine project written in C++ with the miniaudio and dearimgui libraries
+                  Features:
+                  - 8 Tracks
+                  - Import your own samples
+                  - Save Custom Presets
+                  - Create your own custom 8 track drum kits
+    `,
+    codeLink: "https://github.com/bran-dev00/Drum-Machine",
+    screenshots: [drumMachine],
 };
 
 export const projectsArray = [pokemonProject, reactProject, javaProject];
