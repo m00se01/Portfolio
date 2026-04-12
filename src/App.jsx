@@ -71,41 +71,10 @@ function App() {
 
                         <div className="relative flex flex-col flex-wrap items-center justify-center px-2 py-8 my-8 overflow-auto rounded-md mx- auto md:pb-16 sm: lg:placeitemsce sm:place-items-center sm:grid place-items-start md:grid-cols-2 xl:grid-cols-3 lg:grid-cols-2 lg:place-items-center ">
                             {/* Could probably clean this up with a map function, handle missing params*/}
-                            <SmallProjectCard
-                                image={javaProject.image}
-                                title={javaProject.title}
-                                finished={javaProject.finished}
-                                stack={javaProject.stack}
-                                description={javaProject.description}
-                                codeLink={javaProject.codeLink}
-                            />
-
-                            <SmallProjectCard
-                                image={drumMachineProject.image}
-                                title={drumMachineProject.title}
-                                finished={drumMachineProject.finished}
-                                stack={drumMachineProject.stack}
-                                description={drumMachineProject.description}
-                                codeLink={drumMachineProject.codeLink}
-                                // screenshots={drumMachineProject.screenshots}
-                            />
-                            <SmallProjectCard
-                                finished={pokemonProject.finished}
-                                title={pokemonProject.title}
-                                image={pokemonProject.image}
-                                stack={pokemonProject.stack}
-                                description={pokemonProject.description}
-                                codeLink={pokemonProject.codeLink}
-                            />
-                            <SmallProjectCard
-                                image={reactProject.image}
-                                title={reactProject.title}
-                                finished={reactProject.finished}
-                                stack={reactProject.stack}
-                                description={reactProject.description}
-                                screenshots={reactProject.screenshots}
-                                codeLink={reactProject.codeLink}
-                            />
+                            <SmallProjectCard {...javaProject} />
+                            <SmallProjectCard {...drumMachineProject} />
+                            <SmallProjectCard {...pokemonProject} />
+                            <SmallProjectCard {...reactProject} />
 
                             <p className="p-4 text-sm font-bold block max-w-[100vw]   sm:text-xl  text-secondaryAccent lg:absolute lg:bottom-2 lg:right-10 ">
                                 Projects marked with:
